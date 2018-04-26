@@ -16,7 +16,7 @@ function createPostsList(posts) {
         // creating paragraph
         const postIdAttr = document.createAttribute('data-post-id');
         postIdAttr.value = post.id;
-        
+
         const buttonEl = document.createElement('button');
         buttonEl.textContent = post.title;
         buttonEl.setAttributeNode(postIdAttr);
@@ -73,7 +73,7 @@ function createAlbumsList(albums) {
         // creating paragraph
         const albumIdAttr = document.createAttribute('data-album-id');
         albumIdAttr.value = album.id;
-        
+
         const buttonEl = document.createElement('button');
         buttonEl.textContent = album.title;
         buttonEl.setAttributeNode(albumIdAttr);
@@ -101,7 +101,6 @@ function createPhotosList(photos) {
     for (let i = 0; i < photos.length; i++) {
         const photo = photos[i];
 
-        // creating paragraph
         const pEl = document.createElement('p');
         pEl.textContent = photo.url;
 
@@ -109,7 +108,6 @@ function createPhotosList(photos) {
         aTag.setAttribute('href', photo.url);
         aTag.appendChild(pEl);
 
-        // creating list item
         const liEl = document.createElement('li');
         liEl.appendChild(aTag);
 
@@ -129,6 +127,7 @@ function onPostsReceived() {
 
     const divEl = document.getElementById('posts-content');
     const commentsDivEl = document.getElementById('comments-content');
+
     while (divEl.firstChild) {
         divEl.removeChild(divEl.firstChild);
     }
@@ -142,6 +141,7 @@ function onAlbumsReceived() {
     const albums = JSON.parse(text);
 
     const divEl = document.getElementById('albums-content');
+
     while (divEl.firstChild) {
         divEl.removeChild(divEl.firstChild);
     }
@@ -156,6 +156,7 @@ function onCommentsReceived() {
     const comments = JSON.parse(text);
 
     const divEl = document.getElementById('comments-content');
+
     while(divEl.firstChild) {
         divEl.removeChild(divEl.firstChild);
     }
@@ -169,6 +170,7 @@ function onPhotosReceived() {
     const photos = JSON.parse(text);
 
     const divEl = document.getElementById('photos-content');
+
     while(divEl.firstChild) {
         divEl.removeChild(divEl.firstChild);
     }
@@ -241,11 +243,9 @@ function createUsersTableBody(users) {
     for (let i = 0; i < users.length; i++) {
         const user = users[i];
 
-        // creating id cell
         const idTdEl = document.createElement('td');
         idTdEl.textContent = user.id;
 
-        // creating name cell
         const dataUserIdAttr = document.createAttribute('data-user-id');
         dataUserIdAttr.value = user.id;
 
@@ -257,7 +257,6 @@ function createUsersTableBody(users) {
         const nameTdEl = document.createElement('td');
         nameTdEl.appendChild(buttonEl);
 
-        // creating album cell
         const userId = document.createAttribute('userid');
         userId.value = user.id;
 
@@ -269,8 +268,6 @@ function createUsersTableBody(users) {
         const albumTdEl = document.createElement('td');
         albumTdEl.appendChild(albumButtonEl);
 
-
-        // creating row
         const trEl = document.createElement('tr');
         trEl.appendChild(idTdEl);
         trEl.appendChild(nameTdEl);
