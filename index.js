@@ -13,7 +13,6 @@ function createPostsList(posts) {
     for (let i = 0; i < posts.length; i++) {
         const post = posts[i];
 
-        // creating paragraph
         const postIdAttr = document.createAttribute('data-post-id');
         postIdAttr.value = post.id;
 
@@ -29,7 +28,6 @@ function createPostsList(posts) {
         pEl.appendChild(buttonEl);
         pEl.appendChild(document.createTextNode(`: ${post.body}`));
 
-        // creating list item
         const liEl = document.createElement('li');
         liEl.appendChild(pEl);
 
@@ -45,7 +43,6 @@ function createCommentsList(comments) {
     for (let i = 0; i < comments.length; i++) {
         const comment = comments[i];
 
-        // creating paragraph
         const strongEl = document.createElement('strong');
         strongEl.textContent = comment.email;
 
@@ -53,7 +50,6 @@ function createCommentsList(comments) {
         pEl.appendChild(strongEl);
         pEl.appendChild(document.createTextNode(`: ${comment.body}`));
 
-        // creating list item
         const liEl = document.createElement('li');
         liEl.appendChild(pEl);
 
@@ -70,7 +66,6 @@ function createAlbumsList(albums) {
     for (let i = 0; i < albums.length; i++) {
         const album = albums[i];
 
-        // creating paragraph
         const albumIdAttr = document.createAttribute('data-album-id');
         albumIdAttr.value = album.id;
 
@@ -85,7 +80,6 @@ function createAlbumsList(albums) {
         const pEl = document.createElement('p');
         pEl.appendChild(buttonEl);
 
-        // creating list item
         const liEl = document.createElement('li');
         liEl.appendChild(pEl);
 
